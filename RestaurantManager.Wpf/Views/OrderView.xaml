@@ -1,0 +1,47 @@
+<UserControl x:Class="RestaurantManager.Wpf.Views.OrderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local:StatusColorConverter x:Key="StatusColorConverter" xmlns:local="clr-namespace:RestaurantManager.Wpf.Converters"/>
+    </UserControl.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Tables" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <ItemsControl ItemsSource="{Binding Tables}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Command="{Binding DataContext.SelectTableCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                            CommandParameter="{Binding}"
+                            Width="100" Height="100" Margin="10">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{Binding Status, Converter={StaticResource StatusColorConverter}}" 
+                                        BorderBrush="Black" BorderThickness="1" CornerRadius="5">
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding TableNumber}" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="{Binding Status}" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="{Binding Capacity, StringFormat='Cap: {0}'}" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>
