@@ -5,11 +5,10 @@ namespace RestaurantManager.Wpf.Models
     public enum TableStatus
     {
         Free,
-        Occupied,
-        WaitingPayment
+        Occupied
     }
 
-    public class RestaurantTable
+    public class RestaurantTable : System.ComponentModel.INotifyPropertyChanged
     {
         [Key]
         public int Id { get; set; }
@@ -18,8 +17,26 @@ namespace RestaurantManager.Wpf.Models
         [MaxLength(50)]
         public string TableNumber { get; set; } = string.Empty;
 
-        public TableStatus Status { get; set; } = TableStatus.Free;
+        private TableStatus _status = TableStatus.Free;
+        public TableStatus Status
+        {
+            get => _status;
+            set
+            {
+                if (_status != value)
+                {
+                    _status = value;
+                    OnPropertyChanged(nameof(Status));
+                }
+            }
+        }
 
         public int Capacity { get; set; }
+
+        public event System.ComponentModel.PropertyChangedEventHandler? PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace RestaurantManager.Wpf.ViewModels
         public ICommand NavigateMenuCommand { get; }
         public ICommand NavigateOrdersCommand { get; }
         public ICommand NavigateReportsCommand { get; }
+        public ICommand NavigateInventoryCommand { get; }
 
         public MainViewModel()
         {
@@ -24,6 +25,7 @@ namespace RestaurantManager.Wpf.ViewModels
             NavigateMenuCommand = new RelayCommand(_ => CurrentViewModel = new MenuViewModel());
             NavigateOrdersCommand = new RelayCommand(_ => CurrentViewModel = new OrderViewModel());
             NavigateReportsCommand = new RelayCommand(_ => CurrentViewModel = new ReportsViewModel());
+            NavigateInventoryCommand = new RelayCommand(_ => CurrentViewModel = new InventoryViewModel());
         }
     }
 }

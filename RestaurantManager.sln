@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantManager.Wpf", "RestaurantManager.Wpf\RestaurantManager.Wpf.csproj", "{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantManager.Tests", "RestaurantManager.Tests\RestaurantManager.Tests.csproj", "{BCAE4558-CEAA-4FC7-9733-0A4C1866AEEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}.Release|x64.Build.0 = Release|Any CPU
 		{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}.Release|x86.ActiveCfg = Release|Any CPU
 		{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}.Release|x86.Build.0 = Release|Any CPU
+		{BCAE4558-CEAA-4FC7-9733-0A4C1866AEEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCAE4558-CEAA-4FC7-9733-0A4C1866AEEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCAE4558-CEAA-4FC7-9733-0A4C1866AEEA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BCAE4558-CEAA-4FC7-9733-0A4C1866AEEA}.Debug|x64.Build.0 = Debug|Any CPU
+		{BCAE4558-CEAA-4FC7-9733-0A4C1866AEEA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BCAE4558-CEAA-4FC7-9733-0A4C1866AEEA}.Debug|x86.Build.0 = Debug|Any CPU
+		{BCAE4558-CEAA-4FC7-9733-0A4C1866AEEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCAE4558-CEAA-4FC7-9733-0A4C1866AEEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCAE4558-CEAA-4FC7-9733-0A4C1866AEEA}.Release|x64.ActiveCfg = Release|Any CPU
+		{BCAE4558-CEAA-4FC7-9733-0A4C1866AEEA}.Release|x64.Build.0 = Release|Any CPU
+		{BCAE4558-CEAA-4FC7-9733-0A4C1866AEEA}.Release|x86.ActiveCfg = Release|Any CPU
+		{BCAE4558-CEAA-4FC7-9733-0A4C1866AEEA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

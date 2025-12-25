@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FRQ7v/fgU0o=",
+  "dgSpecHash": "aDEviRkSHj4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj",
+  "projectFilePath": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\const\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\const\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

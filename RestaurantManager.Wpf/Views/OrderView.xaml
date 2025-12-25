@@ -14,9 +14,17 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Tables" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Tables" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,20,0"/>
+            
+            <TextBlock Text="Capacity:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox Text="{Binding NewTableCapacity}" Width="50" Margin="0,0,10,0" VerticalContentAlignment="Center"/>
+            <Button Content="Add New Table" Command="{Binding AddTableCommand}" Padding="10,5" Margin="0,0,20,0"/>
+            
+            <CheckBox Content="Delete Mode (Eraser)" IsChecked="{Binding IsDeleteMode}" VerticalAlignment="Center" Foreground="Red" FontWeight="Bold"/>
+        </StackPanel>
 
-        <ItemsControl ItemsSource="{Binding Tables}">
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Tables}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -27,6 +35,13 @@
                     <Button Command="{Binding DataContext.SelectTableCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
                             CommandParameter="{Binding}"
                             Width="100" Height="100" Margin="10">
+                        <Button.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Delete Table" 
+                                          Command="{Binding DataContext.DeleteTableCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                          CommandParameter="{Binding}"/>
+                            </ContextMenu>
+                        </Button.ContextMenu>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Background="{Binding Status, Converter={StaticResource StatusColorConverter}}" 

@@ -21,6 +21,7 @@ namespace RestaurantManager.Wpf.ViewModels
 
         public ObservableCollection<ReportItem> TopSellingItems { get; set; } = new ObservableCollection<ReportItem>();
         public ObservableCollection<ReportItem> CategoryRevenues { get; set; } = new ObservableCollection<ReportItem>();
+        public ObservableCollection<OrderHistoryItem> OrderHistory { get; set; } = new ObservableCollection<OrderHistoryItem>();
         
         private string _averageServiceTime = "N/A";
         public string AverageServiceTime
@@ -60,6 +61,7 @@ namespace RestaurantManager.Wpf.ViewModels
             }
 
             // Report 2: Revenue per Category
+            // Report 2: Quantity per Category
             var catRevenues = _context.OrderItems
                 .Include(oi => oi.MenuItem)
                 .ThenInclude(mi => mi!.Category)
@@ -67,6 +69,7 @@ namespace RestaurantManager.Wpf.ViewModels
                 .Select(g => new
                 {
                     CategoryName = g.Key,
+                    TotalQuantity = g.Sum(oi => oi.Quantity),
                     TotalRevenue = g.Sum(oi => oi.PriceAtOrder * oi.Quantity)
                 })
                 .ToList();
@@ -74,7 +77,7 @@ namespace RestaurantManager.Wpf.ViewModels
             CategoryRevenues.Clear();
             foreach (var cat in catRevenues)
             {
-                CategoryRevenues.Add(new ReportItem { Name = cat.CategoryName, Value = (double)cat.TotalRevenue, Label = $"{cat.TotalRevenue:C}" });
+                CategoryRevenues.Add(new ReportItem { Name = cat.CategoryName, Value = (double)cat.TotalQuantity, Label = $"{cat.TotalRevenue:C}" });
             }
 
             // Report 3: Average Service Time
@@ -95,11 +98,41 @@ namespace RestaurantManager.Wpf.ViewModels
             {
                 AverageServiceTime = "No data";
             }
+
+            // Report 4: Order History
+            var history = _context.Orders
+                .Include(o => o.Table)
+                .Where(o => o.Status == OrderStatus.Paid)
+                .OrderByDescending(o => o.OrderDate)
+                .Select(o => new OrderHistoryItem
+                {
+                    OrderId = o.Id,
+                    Date = o.OrderDate,
+                    TableNumber = o.Table != null ? o.Table.TableNumber : "N/A",
+                    TotalAmount = o.TotalAmount,
+                    PaymentMethod = o.PaymentMethod.ToString()
+                })
+                .ToList();
+
+            OrderHistory.Clear();
+            foreach (var h in history)
+            {
+                OrderHistory.Add(h);
+            }
         }
 
         public void Dispose()
         {
             _context.Dispose();
         }
+    }
+
+    public class OrderHistoryItem
+    {
+        public int OrderId { get; set; }
+        public DateTime Date { get; set; }
+        public string TableNumber { get; set; } = string.Empty;
+        public decimal TotalAmount { get; set; }
+        public string PaymentMethod { get; set; } = string.Empty;
     }
 }

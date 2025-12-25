@@ -22,6 +22,9 @@
         <DataTemplate DataType="{x:Type vm:ReportsViewModel}">
             <views:ReportsView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:InventoryViewModel}">
+            <views:InventoryView/>
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -30,14 +33,17 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Navigation Sidebar -->
-        <StackPanel Grid.Column="0" Background="#F0F0F0">
-            <TextBlock Text="Restaurant App" FontSize="20" FontWeight="Bold" Margin="10"/>
-            <Button Content="Meniu" Command="{Binding NavigateMenuCommand}" Margin="5" Padding="5"/>
-            <Button Content="Comenzi (Mese)" Command="{Binding NavigateOrdersCommand}" Margin="5" Padding="5"/>
-            <Button Content="Rapoarte" Command="{Binding NavigateReportsCommand}" Margin="5" Padding="5"/>
-        </StackPanel>
+        <!-- Sidebar Navigation -->
+        <Border Grid.Column="0" Background="#333" Padding="10">
+            <StackPanel>
+                <TextBlock Text="Restaurant Manager" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
+                <Button Content="Meniu" Command="{Binding NavigateMenuCommand}" Margin="0,5" Padding="10" Background="Transparent" Foreground="White" BorderBrush="White"/>
+                <Button Content="Comenzi (Mese)" Command="{Binding NavigateOrdersCommand}" Margin="0,5" Padding="10" Background="Transparent" Foreground="White" BorderBrush="White"/>
+                <Button Content="Rapoarte" Command="{Binding NavigateReportsCommand}" Margin="0,5" Padding="10" Background="Transparent" Foreground="White" BorderBrush="White"/>
+                <Button Content="Stoc (Inventory)" Command="{Binding NavigateInventoryCommand}" Margin="0,5" Padding="10" Background="Transparent" Foreground="White" BorderBrush="White"/>
+            </StackPanel>
+        </Border>
         <!-- Main Content Area -->
         <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}"/>
     </Grid>

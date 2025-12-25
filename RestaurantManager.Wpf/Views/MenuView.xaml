@@ -12,9 +12,53 @@
         </Grid.ColumnDefinitions>
 
         <DockPanel Grid.Column="0">
-            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,10">
-                <Button Content="Add Item" Command="{Binding AddMenuItemCommand}" Padding="5,2" Margin="5"/>
-                <Button Content="Delete Item" Command="{Binding DeleteMenuItemCommand}" Padding="5,2" Margin="5"/>
+            <StackPanel DockPanel.Dock="Top">
+                <TextBlock Text="New Menu Item" FontWeight="Bold" Margin="0,0,0,5"/>
+                
+                <!-- Inputs for New Item -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Name:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding NewItemName}" Width="150" Margin="0,0,10,0" VerticalContentAlignment="Center"/>
+                    
+                    <TextBlock Text="Price:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding NewItemPrice}" Width="50" Margin="0,0,10,0" VerticalContentAlignment="Center"/>
+                    
+                    <TextBlock Text="Cat:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" DisplayMemberPath="Name" Width="100" VerticalContentAlignment="Center"/>
+                </StackPanel>
+
+                <!-- Recipe Builder -->
+                <TextBlock Text="Recipe (Optional):" VerticalAlignment="Center" Margin="0,5,5,0" FontWeight="Bold"/>
+                
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Ingr:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ComboBox ItemsSource="{Binding AvailableIngredients}" SelectedItem="{Binding SelectedIngredient}" DisplayMemberPath="Name" Width="100" Margin="0,0,10,0"/>
+                    
+                    <TextBlock Text="Qty:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding IngredientQuantity}" Width="50" Margin="0,0,10,0"/>
+                    
+                    <Button Content="Add to Recipe" Command="{Binding AddIngredientToRecipeCommand}" Padding="5,2"/>
+                </StackPanel>
+
+                <ListBox ItemsSource="{Binding PendingRecipeItems}" Height="80" Margin="0,0,0,10" Background="LightYellow">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Ingredient.Name}" FontWeight="Bold"/>
+                                <TextBlock Text=" - "/>
+                                <TextBlock Text="{Binding QuantityRequired}"/>
+                                <TextBlock Text="{Binding Ingredient.Unit, StringFormat=' ({0})'}"/>
+                                <Button Content="X" Command="{Binding DataContext.RemoveIngredientFromRecipeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                                        CommandParameter="{Binding}" Margin="10,0,0,0" Foreground="Red" FontSize="10" Padding="2,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Add Menu Item" Command="{Binding AddMenuItemCommand}" Width="150" HorizontalAlignment="Left" Padding="10,5" Margin="0,0,10,0"/>
+                    <Button Content="Delete Selected Item" Command="{Binding DeleteMenuItemCommand}" CommandParameter="{Binding SelectedMenuItem}" Width="150" Background="Red" Foreground="White" Padding="10,5"/>
+                </StackPanel>
             </StackPanel>
 
             <DataGrid ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem}" AutoGenerateColumns="False" CanUserAddRows="False">

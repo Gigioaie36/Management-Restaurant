@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\RestaurantManager.Wpf\obj\Debug\net9.0-windows\
+C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\obj\Debug\net9.0-windows\
 RestaurantManager.Wpf
 none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\RestaurantManager.Wpf\App.xaml
-41855478876
+C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\App.xaml
+6-490175858
 
-27167356357
+31-1242592250
 2291914053882
-MainWindow.xaml;Views\MenuView.xaml;Views\OrderView.xaml;Views\ReportsView.xaml;
+MainWindow.xaml;Views\InventoryView.xaml;Views\MenuView.xaml;Views\OrderSelectionWindow.xaml;Views\OrderView.xaml;Views\ReportsView.xaml;
 
 False
 
