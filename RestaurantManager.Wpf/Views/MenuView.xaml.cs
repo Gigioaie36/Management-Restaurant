@@ -8,5 +8,13 @@ namespace RestaurantManager.Wpf.Views
         {
             InitializeComponent();
         }
+
+        private void ClearFilter_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (DataContext is ViewModels.MenuViewModel vm)
+            {
+                vm.SelectedFilterCategory = null;
+            }
+        }
     }
 }

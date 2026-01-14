@@ -32,6 +32,20 @@ namespace RestaurantManager.Wpf.ViewModels
 
         public ICommand RefreshReportsCommand { get; }
 
+        private DateTime _startDate = DateTime.Today.AddDays(-30);
+        public DateTime StartDate
+        {
+            get => _startDate;
+            set => SetProperty(ref _startDate, value);
+        }
+
+        private DateTime _endDate = DateTime.Today;
+        public DateTime EndDate
+        {
+            get => _endDate;
+            set => SetProperty(ref _endDate, value);
+        }
+
         public ReportsViewModel()
         {
             _context = new RestaurantDbContext();
@@ -42,8 +56,11 @@ namespace RestaurantManager.Wpf.ViewModels
         private void LoadReports()
         {
             // Report 1: Top 5 Best Selling Items
+            // Filter by Date Range
             var topItems = _context.OrderItems
                 .Include(oi => oi.MenuItem)
+                .Include(oi => oi.Order) // Include Order to access OrderDate
+                .Where(oi => oi.Order!.OrderDate >= StartDate && oi.Order.OrderDate < EndDate.AddDays(1)) // Inclusive of EndDate full day
                 .GroupBy(oi => oi.MenuItemId)
                 .Select(g => new
                 {

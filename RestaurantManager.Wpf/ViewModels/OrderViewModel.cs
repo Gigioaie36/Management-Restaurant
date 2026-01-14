@@ -121,9 +121,29 @@ namespace RestaurantManager.Wpf.ViewModels
                         
                         // Refresh table status (it might have changed to Occupied in the VM)
                         _context.Entry(table).Reload();
+                        
+                        // NEW LOGIC: If table became Occupied, wait 5 seconds then switch to AsteaptaNota
+                        if (table.Status == TableStatus.Occupied)
+                        {
+                            // Fire and forget or simple async wait? 
+                            // Since this is void async, it runs on UI thread but yields. 
+                            // We want to update UI after 5s.
+                            await Task.Delay(5000); // 5 seconds
+                            
+                            // Re-check status in case it was paid very quickly?
+                            // For simulation: force update if still Occupied
+                            // We need to reload to be sure we have latest status from DB if other threads existed (but here single user)
+                             _context.Entry(table).Reload();
+                            if (table.Status == TableStatus.Occupied)
+                            {
+                                table.Status = TableStatus.AsteaptaNota;
+                                _context.SaveChanges();
+                            }
+                        }
                         break;
 
                     case TableStatus.Occupied:
+                    case TableStatus.AsteaptaNota: // Handle waiting for bill status same as occupied for payment
                         // Find the active order for this table
                         var activeOrder = _context.Orders
                             .Include(o => o.OrderItems)

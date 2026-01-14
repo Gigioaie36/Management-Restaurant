@@ -16,6 +16,7 @@ namespace RestaurantManager.Wpf.Converters
                 {
                     TableStatus.Free => Brushes.LightGreen,
                     TableStatus.Occupied => Brushes.Salmon,
+                    TableStatus.AsteaptaNota => Brushes.Yellow, 
                     _ => Brushes.Gray
                 };
             }

@@ -60,14 +60,29 @@
                     <Button Content="Delete Selected Item" Command="{Binding DeleteMenuItemCommand}" CommandParameter="{Binding SelectedMenuItem}" Width="150" Background="Red" Foreground="White" Padding="10,5"/>
                 </StackPanel>
             </StackPanel>
+            
+            <DockPanel LastChildFill="True">
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Filter by Category:" VerticalAlignment="Center" Margin="0,0,5,0" FontWeight="Bold"/>
+                    <ComboBox ItemsSource="{Binding Categories}" 
+                              SelectedItem="{Binding SelectedFilterCategory}" 
+                              DisplayMemberPath="Name" 
+                              Width="120"
+                              IsEnabled="True"/>
+                    <Button Content="Clear Filter" 
+                            Command="{Binding DataContext.SaveChangesCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                            Click="ClearFilter_Click" 
+                            Margin="5,0,0,0" Padding="5,0"/>
+                </StackPanel>
 
-            <DataGrid ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem}" AutoGenerateColumns="False" CanUserAddRows="False">
+                <DataGrid ItemsSource="{Binding MenuItemsView}" SelectedItem="{Binding SelectedMenuItem}" AutoGenerateColumns="False" CanUserAddRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
                     <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="Auto"/>
                     <DataGridTextColumn Header="Category" Binding="{Binding Category.Name}" Width="Auto"/>
                 </DataGrid.Columns>
             </DataGrid>
+        </DockPanel>
         </DockPanel>
 
         <!-- Edit Form -->

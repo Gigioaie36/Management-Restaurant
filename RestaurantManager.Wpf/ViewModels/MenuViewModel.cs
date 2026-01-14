@@ -5,6 +5,8 @@ using RestaurantManager.Wpf.Models;
 using System.Windows.Input;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace RestaurantManager.Wpf.ViewModels
 {
@@ -77,6 +79,22 @@ namespace RestaurantManager.Wpf.ViewModels
             set => SetProperty(ref _ingredientQuantity, value);
         }
 
+        // Filter
+        public ICollectionView MenuItemsView { get; private set; }
+
+        private Category? _selectedFilterCategory;
+        public Category? SelectedFilterCategory
+        {
+            get => _selectedFilterCategory;
+            set
+            {
+                if (SetProperty(ref _selectedFilterCategory, value))
+                {
+                    MenuItemsView.Refresh();
+                }
+            }
+        }
+
         public MenuViewModel() : this(new RestaurantDbContext())
         {
         }
@@ -103,6 +121,10 @@ namespace RestaurantManager.Wpf.ViewModels
             _context.MenuItems.Include(m => m.Category).Load();
             MenuItems = _context.MenuItems.Local.ToObservableCollection();
             
+            // Initialize View for Filtering
+            MenuItemsView = CollectionViewSource.GetDefaultView(MenuItems);
+            MenuItemsView.Filter = FilterMenuItems;
+
             _context.Ingredients.Load();
             AvailableIngredients = _context.Ingredients.Local.ToObservableCollection();
 
@@ -112,6 +134,16 @@ namespace RestaurantManager.Wpf.ViewModels
                 _context.Categories.Add(new Category { Name = "Drinks" });
                 _context.SaveChanges();
             }
+        }
+
+        private bool FilterMenuItems(object obj)
+        {
+            if (obj is MenuItem item)
+            {
+                if (SelectedFilterCategory == null) return true;
+                return item.CategoryId == SelectedFilterCategory.Id;
+            }
+            return false;
         }
 
         private void AddIngredientToRecipe()

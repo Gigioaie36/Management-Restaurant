@@ -5,7 +5,8 @@ namespace RestaurantManager.Wpf.Models
     public enum TableStatus
     {
         Free,
-        Occupied
+        Occupied,
+        AsteaptaNota
     }
 
     public class RestaurantTable : System.ComponentModel.INotifyPropertyChanged
