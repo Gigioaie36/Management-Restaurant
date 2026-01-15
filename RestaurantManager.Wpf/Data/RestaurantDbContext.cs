@@ -12,6 +12,7 @@ namespace RestaurantManager.Wpf.Data
         public DbSet<RestaurantTable> Tables { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<DeliveryDriver> DeliveryDrivers { get; set; }
 
         public RestaurantDbContext(DbContextOptions<RestaurantDbContext> options) : base(options)
         {

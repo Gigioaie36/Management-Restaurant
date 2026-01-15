@@ -297,3 +297,11 @@ C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor 
 C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\obj\Debug\net9.0-windows\Views\OrderSelectionWindow.g.cs
 C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\obj\Debug\net9.0-windows\Views\InventoryView.baml
 C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\obj\Debug\net9.0-windows\Views\InventoryView.g.cs
+C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\obj\Debug\net9.0-windows\Views\CategoryManagementWindow.g.cs
+C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\obj\Debug\net9.0-windows\Views\CategoryManagementWindow.baml
+C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\obj\Debug\net9.0-windows\Views\KitchenView.g.cs
+C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\obj\Debug\net9.0-windows\Views\KitchenView.baml
+C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\obj\Debug\net9.0-windows\Views\OnlineOrdersView.g.cs
+C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\obj\Debug\net9.0-windows\Views\OnlineOrdersView.baml
+C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\obj\Debug\net9.0-windows\Views\DeliveryView.g.cs
+C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\obj\Debug\net9.0-windows\Views\DeliveryView.baml

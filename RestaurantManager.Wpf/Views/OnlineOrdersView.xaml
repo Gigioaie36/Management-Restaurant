@@ -1,0 +1,73 @@
+<UserControl x:Class="RestaurantManager.Wpf.Views.OnlineOrdersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RestaurantManager.Wpf.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Comenzi Online - Selecteaza Sectorul" 
+                   FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="20"/>
+
+         <Viewbox Grid.Row="1" Margin="20">
+            <Canvas Width="500" Height="500">
+                <Canvas.Resources>
+                    <Style TargetType="Path">
+                        <Setter Property="Stroke" Value="White"/>
+                        <Setter Property="StrokeThickness" Value="2"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Stroke" Value="#333"/>
+                                <Setter Property="Panel.ZIndex" Value="10"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Fill" Value="#CCCCCC"/>
+                                <Setter Property="Cursor" Value="No"/>
+                                <Setter Property="ToolTip" Value="Indisponibil (Fara Livratori Liberi)"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Canvas.Resources>
+
+                <!-- Sector 1 (Top - Salmon) -->
+                <Path Fill="#ff9f9f" ToolTip="Sector 1" Tag="1" MouseLeftButtonDown="Sector_Click" IsEnabled="{Binding IsS1Available}"
+                      Data="M 250,250 L 160,210 L 140,120 L 180,80 L 180,50 L 280,20 L 320,150 L 300,250 Z"/>
+
+                <!-- Sector 2 (Top Right - Yellow) -->
+                <Path Fill="#fffd7f" ToolTip="Sector 2" Tag="2" MouseLeftButtonDown="Sector_Click" IsEnabled="{Binding IsS2Available}"
+                      Data="M 250,250 L 300,250 L 320,150 L 450,170 L 480,220 L 350,270 Z"/>
+
+                <!-- Sector 3 (Right - Green) -->
+                <Path Fill="#9aff9a" ToolTip="Sector 3" Tag="3" MouseLeftButtonDown="Sector_Click" IsEnabled="{Binding IsS3Available}"
+                      Data="M 250,250 L 350,270 L 480,220 L 500,300 L 450,380 L 320,350 Z"/>
+
+                <!-- Sector 4 (Bottom - Cyan) -->
+                <Path Fill="#7fffff" ToolTip="Sector 4" Tag="4" MouseLeftButtonDown="Sector_Click" IsEnabled="{Binding IsS4Available}"
+                      Data="M 250,250 L 320,350 L 450,380 L 400,480 L 350,450 L 300,480 L 240,420 Z"/>
+
+                <!-- Sector 5 (Bottom Left - Purple) -->
+                <Path Fill="#bf9fff" ToolTip="Sector 5" Tag="5" MouseLeftButtonDown="Sector_Click" IsEnabled="{Binding IsS5Available}"
+                      Data="M 250,250 L 240,420 L 150,400 L 100,350 L 80,320 L 160,270 Z"/>
+
+                <!-- Sector 6 (Left - Pink) -->
+                <Path Fill="#ff5fff" ToolTip="Sector 6" Tag="6" MouseLeftButtonDown="Sector_Click" IsEnabled="{Binding IsS6Available}"
+                      Data="M 250,250 L 160,270 L 80,320 L 50,300 L 50,250 L 20,240 L 50,180 L 160,210 Z"/>
+
+                <!-- Labels -->
+                <TextBlock Text="1" Canvas.Left="250" Canvas.Top="120" FontSize="30" FontWeight="Bold" Foreground="#555" IsHitTestVisible="False"/>
+                <TextBlock Text="2" Canvas.Left="350" Canvas.Top="180" FontSize="30" FontWeight="Bold" Foreground="#555" IsHitTestVisible="False"/>
+                <TextBlock Text="3" Canvas.Left="380" Canvas.Top="300" FontSize="30" FontWeight="Bold" Foreground="#555" IsHitTestVisible="False"/>
+                <TextBlock Text="4" Canvas.Left="300" Canvas.Top="400" FontSize="30" FontWeight="Bold" Foreground="#555" IsHitTestVisible="False"/>
+                <TextBlock Text="5" Canvas.Left="180" Canvas.Top="350" FontSize="30" FontWeight="Bold" Foreground="#555" IsHitTestVisible="False"/>
+                <TextBlock Text="6" Canvas.Left="100" Canvas.Top="220" FontSize="30" FontWeight="Bold" Foreground="#555" IsHitTestVisible="False"/>
+            </Canvas>
+        </Viewbox>
+    </Grid>
+</UserControl>

@@ -25,6 +25,7 @@ namespace RestaurantManager.Wpf.ViewModels
         }
 
         public ICommand AddToOrderCommand { get; }
+        public ICommand DecreaseQuantityCommand { get; }
         public ICommand RemoveFromOrderCommand { get; }
         public ICommand SaveOrderCommand { get; }
         
@@ -42,6 +43,7 @@ namespace RestaurantManager.Wpf.ViewModels
 
             // Initialize Commands
             AddToOrderCommand = new RelayCommand(param => AddToOrder(param as MenuItem));
+            DecreaseQuantityCommand = new RelayCommand(param => DecreaseQuantity(param as OrderItem));
             RemoveFromOrderCommand = new RelayCommand(param => RemoveFromOrder(param as OrderItem));
             SaveOrderCommand = new RelayCommand(_ => SaveOrder());
         }
@@ -54,14 +56,7 @@ namespace RestaurantManager.Wpf.ViewModels
             if (existingItem != null)
             {
                 existingItem.Quantity++;
-                // Trigger update manually or rely on property change if OrderItem implemented it. 
-                // Since OrderItem is POCO, we remove and re-add or need a wrapper. 
-                // Simplest solution for now: Re-calculate total.
-                // Note: UI for Quantity might not update without INotifyPropertyChanged on OrderItem.
-                // We will force a refresh of the collection or use a wrapper in a real app. 
-                // For this quick implementation, let's just create a new entry for every click or simple Quantity update logic.
-                
-                // Hack to refresh the specific item in List if bound
+                // Refresh list item hack
                 var index = OrderItems.IndexOf(existingItem);
                 OrderItems.RemoveAt(index);
                 OrderItems.Insert(index, existingItem);
@@ -75,6 +70,25 @@ namespace RestaurantManager.Wpf.ViewModels
                     PriceAtOrder = menuItem.Price,
                     Quantity = 1
                 });
+            }
+            RecalculateTotal();
+        }
+
+        private void DecreaseQuantity(OrderItem? orderItem)
+        {
+            if (orderItem == null) return;
+
+            orderItem.Quantity--;
+            if (orderItem.Quantity <= 0)
+            {
+                OrderItems.Remove(orderItem);
+            }
+            else
+            {
+                // Refresh list item hack to update Total and Quantity binding
+                var index = OrderItems.IndexOf(orderItem);
+                OrderItems.RemoveAt(index);
+                OrderItems.Insert(index, orderItem);
             }
             RecalculateTotal();
         }
@@ -97,6 +111,71 @@ namespace RestaurantManager.Wpf.ViewModels
             {
                 MessageBox.Show("Please add items to the order first.");
                 return;
+            }
+
+            // 1. Validation: Check if we have enough stock for ALL items
+            var requiredQuantities = new Dictionary<int, double>();
+            var insufficientIngredients = new List<string>();
+
+            // Calculate total requirements for the entire order
+            foreach (var orderLine in OrderItems)
+            {
+                // Use a separate context query or detached list to avoid messing with tracking if needed, 
+                // but here we just need read access.
+                var recipes = _context.RecipeItems
+                    .Include(r => r.Ingredient)
+                    .Where(r => r.MenuItemId == orderLine.MenuItemId)
+                    .ToList();
+
+                foreach (var recipe in recipes)
+                {
+                    if (recipe.Ingredient != null)
+                    {
+                        if (!requiredQuantities.ContainsKey(recipe.IngredientId))
+                        {
+                            requiredQuantities[recipe.IngredientId] = 0;
+                        }
+                        requiredQuantities[recipe.IngredientId] += recipe.QuantityRequired * orderLine.Quantity;
+                    }
+                }
+            }
+
+            // Check against current stock
+            foreach (var req in requiredQuantities)
+            {
+                var ingredient = _context.Ingredients.Find(req.Key);
+                if (ingredient != null)
+                {
+                    if (ingredient.StockQuantity < req.Value)
+                    {
+                        insufficientIngredients.Add($"- {ingredient.Name} (Required: {req.Value} {ingredient.Unit}, Available: {ingredient.StockQuantity} {ingredient.Unit})");
+                    }
+                }
+            }
+
+            if (insufficientIngredients.Any())
+            {
+                MessageBox.Show($"Cannot place order. Insufficient stock for:\n{string.Join("\n", insufficientIngredients)}", 
+                    "Inventory Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return; // Stop execution, do not deduct, do not save order
+            }
+
+            // Deduct from Stock
+            foreach (var orderLine in OrderItems)
+            {
+                var recipes = _context.RecipeItems
+                    .Include(r => r.Ingredient)
+                    .Where(r => r.MenuItemId == orderLine.MenuItemId)
+                    .ToList();
+
+                foreach (var recipe in recipes)
+                {
+                    if (recipe.Ingredient != null)
+                    {
+                        var quantityToDeduct = recipe.QuantityRequired * orderLine.Quantity;
+                        recipe.Ingredient.StockQuantity -= quantityToDeduct;
+                    }
+                }
             }
 
             // Create the real Order in DB

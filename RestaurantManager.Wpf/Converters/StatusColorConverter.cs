@@ -20,6 +20,18 @@ namespace RestaurantManager.Wpf.Converters
                     _ => Brushes.Gray
                 };
             }
+            if (value is OrderStatus orderStatus)
+            {
+                // New (Yellow), Preparing (Red), Served (Green), Paid (Gray/White)
+                return orderStatus switch
+                {
+                    OrderStatus.New => Brushes.Yellow,
+                    OrderStatus.Preparing => Brushes.Red,
+                    OrderStatus.Served => Brushes.LightGreen,
+                    OrderStatus.Paid => Brushes.LightGray,
+                    _ => Brushes.White
+                };
+            }
             return Brushes.White;
         }
 

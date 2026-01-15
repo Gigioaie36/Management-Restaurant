@@ -34,6 +34,27 @@ namespace RestaurantManager.Wpf.ViewModels
             DeleteTableCommand = new RelayCommand(param => DeleteTable(param as RestaurantTable));
             
             LoadTables();
+
+            // Auto-refresh timer to reflect changes from Kitchen View
+            var refreshTimer = new System.Windows.Threading.DispatcherTimer();
+            refreshTimer.Interval = System.TimeSpan.FromSeconds(1);
+            refreshTimer.Tick += (s, e) => RefreshTables();
+            refreshTimer.Start();
+        }
+
+        private void RefreshTables()
+        {
+            // Reload specific properties or just reload tables
+            // To ignore local changes if any, we can drop and reload, or just Reload.
+            // Since this view is mostly for selection, resetting tables is fine if status changed.
+            
+            // Optimization: Only check if we are not currently interacting (e.g. not deleting)
+            // But for simple "View", let's just reload status.
+            
+            foreach (var table in Tables)
+            {
+                _context.Entry(table).Reload();
+            }
         }
 
         private void AddTable()
@@ -55,6 +76,9 @@ namespace RestaurantManager.Wpf.ViewModels
 
             _context.Tables.Add(newTable);
             _context.SaveChanges();
+            
+            // Refresh list
+            LoadTables();
         }
 
         private void DeleteTable(RestaurantTable? table)
@@ -72,6 +96,7 @@ namespace RestaurantManager.Wpf.ViewModels
 
             _context.Tables.Remove(table);
             _context.SaveChanges();
+            Tables.Remove(table);
         }
 
         private bool _isDeleteMode;
@@ -119,28 +144,11 @@ namespace RestaurantManager.Wpf.ViewModels
                         
                         orderWindow.ShowDialog();
                         
-                        // Refresh table status (it might have changed to Occupied in the VM)
+                        // Refresh table status logic is now handled by Kitchen View and Auto-Refresh
+                        // But we trigger one immediate reload just in case
                         _context.Entry(table).Reload();
-                        
-                        // NEW LOGIC: If table became Occupied, wait 5 seconds then switch to AsteaptaNota
-                        if (table.Status == TableStatus.Occupied)
-                        {
-                            // Fire and forget or simple async wait? 
-                            // Since this is void async, it runs on UI thread but yields. 
-                            // We want to update UI after 5s.
-                            await Task.Delay(5000); // 5 seconds
-                            
-                            // Re-check status in case it was paid very quickly?
-                            // For simulation: force update if still Occupied
-                            // We need to reload to be sure we have latest status from DB if other threads existed (but here single user)
-                             _context.Entry(table).Reload();
-                            if (table.Status == TableStatus.Occupied)
-                            {
-                                table.Status = TableStatus.AsteaptaNota;
-                                _context.SaveChanges();
-                            }
-                        }
                         break;
+
 
                     case TableStatus.Occupied:
                     case TableStatus.AsteaptaNota: // Handle waiting for bill status same as occupied for payment
@@ -192,15 +200,10 @@ namespace RestaurantManager.Wpf.ViewModels
             _context.Tables.Load();
             Tables = _context.Tables.Local.ToObservableCollection();
             
-            // Sanitize data: Tables might be in an invalid state (e.g. WaitingPayment = 2) if DB wasn't cleared
-            foreach (var t in Tables)
-            {
-                if ((int)t.Status > 1) // If invalid enum value
-                {
-                    t.Status = TableStatus.Free;
-                }
-            }
-            _context.SaveChanges();
+            // Startup Cleanup REMOVED: Moved to MainViewModel to run only ONCE per app session.
+            // Previous logic here was causing tables to reset every time we navigated to this view.
+
+            OnPropertyChanged(nameof(Tables));
 
             OnPropertyChanged(nameof(Tables));
 

@@ -56,9 +56,20 @@
                 <ListView Grid.Row="1" ItemsSource="{Binding OrderItems}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Item" DisplayMemberBinding="{Binding MenuItem.Name}" Width="120"/>
-                            <GridViewColumn Header="Qty" DisplayMemberBinding="{Binding Quantity}" Width="40"/>
-                            <GridViewColumn Header="Price" DisplayMemberBinding="{Binding PriceAtOrder}" Width="60"/>
+                            <GridViewColumn Header="Item" DisplayMemberBinding="{Binding MenuItem.Name}" Width="100"/>
+                             <GridViewColumn Header="Price" DisplayMemberBinding="{Binding PriceAtOrder}" Width="50"/>
+                            <GridViewColumn Header="Qty" Width="60">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Quantity}" VerticalAlignment="Center" Margin="0,0,5,0" FontWeight="Bold"/>
+                                            <Button Content="-" Command="{Binding DataContext.DecreaseQuantityCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
+                                                    CommandParameter="{Binding}" Width="20" Height="20" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Subtotal" DisplayMemberBinding="{Binding Total, StringFormat='{}{0:0.00} RON'}" Width="80"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

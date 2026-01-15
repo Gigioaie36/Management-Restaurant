@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\const\OneDrive\Desktop\proiecte_facultate\Anul 3\Administrarea bazelor de date\Proiect\Management-Restaurant\RestaurantManager.Wpf\App.xaml
-6-490175858
+10795577629
 
-31-1242592250
+41763710616
 2291914053882
-MainWindow.xaml;Views\InventoryView.xaml;Views\MenuView.xaml;Views\OrderSelectionWindow.xaml;Views\OrderView.xaml;Views\ReportsView.xaml;
+MainWindow.xaml;Views\CategoryManagementWindow.xaml;Views\DeliveryView.xaml;Views\InventoryView.xaml;Views\KitchenView.xaml;Views\MenuView.xaml;Views\OnlineOrdersView.xaml;Views\OrderSelectionWindow.xaml;Views\OrderView.xaml;Views\ReportsView.xaml;
 
 False
 

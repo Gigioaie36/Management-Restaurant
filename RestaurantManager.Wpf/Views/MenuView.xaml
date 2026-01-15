@@ -69,6 +69,7 @@
                               DisplayMemberPath="Name" 
                               Width="120"
                               IsEnabled="True"/>
+                    <Button Content="Manage Categories" Command="{Binding ManageCategoriesCommand}" Padding="5,0" Margin="5,0,0,0" Background="#DDDDDD"/>
                     <Button Content="Clear Filter" 
                             Command="{Binding DataContext.SaveChangesCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
                             Click="ClearFilter_Click" 

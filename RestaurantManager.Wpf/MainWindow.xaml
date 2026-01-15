@@ -25,6 +25,15 @@
         <DataTemplate DataType="{x:Type vm:InventoryViewModel}">
             <views:InventoryView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:KitchenViewModel}">
+            <views:KitchenView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:OnlineOrdersViewModel}">
+            <views:OnlineOrdersView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:DeliveryViewModel}">
+            <views:DeliveryView/>
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -40,8 +49,11 @@
 
                 <Button Content="Meniu" Command="{Binding NavigateMenuCommand}" Margin="0,5" Padding="10" Background="Transparent" Foreground="White" BorderBrush="White"/>
                 <Button Content="Comenzi (Mese)" Command="{Binding NavigateOrdersCommand}" Margin="0,5" Padding="10" Background="Transparent" Foreground="White" BorderBrush="White"/>
+                <Button Content="Bucatarie" Command="{Binding NavigateKitchenCommand}" Margin="0,5" Padding="10" Background="Transparent" Foreground="White" BorderBrush="White"/>
                 <Button Content="Rapoarte" Command="{Binding NavigateReportsCommand}" Margin="0,5" Padding="10" Background="Transparent" Foreground="White" BorderBrush="White"/>
                 <Button Content="Stoc (Inventory)" Command="{Binding NavigateInventoryCommand}" Margin="0,5" Padding="10" Background="Transparent" Foreground="White" BorderBrush="White"/>
+                <Button Content="Comenzi Online" Command="{Binding NavigateOnlineOrdersCommand}" Margin="0,5" Padding="10" Background="Transparent" Foreground="White" BorderBrush="White"/>
+                <Button Content="Livratori" Command="{Binding NavigateDeliveryCommand}" Margin="0,5" Padding="10" Background="Transparent" Foreground="White" BorderBrush="White"/>
             </StackPanel>
         </Border>
         <!-- Main Content Area -->

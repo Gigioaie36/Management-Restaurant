@@ -22,5 +22,8 @@ namespace RestaurantManager.Wpf.Models
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal PriceAtOrder { get; set; }
+
+        [NotMapped]
+        public decimal Total => PriceAtOrder * Quantity;
     }
 }

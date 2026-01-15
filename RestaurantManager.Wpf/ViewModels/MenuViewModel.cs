@@ -109,8 +109,26 @@ namespace RestaurantManager.Wpf.ViewModels
             DeleteMenuItemCommand = new RelayCommand(param => DeleteMenuItem(param as MenuItem));
             AddIngredientToRecipeCommand = new RelayCommand(_ => AddIngredientToRecipe());
             RemoveIngredientFromRecipeCommand = new RelayCommand(param => RemoveIngredientFromRecipe(param as RecipeItem));
+            ManageCategoriesCommand = new RelayCommand(_ => ManageCategories());
 
             LoadData();
+        }
+
+        public ICommand ManageCategoriesCommand { get; }
+
+        private void ManageCategories()
+        {
+            var vm = new CategoryManagementViewModel(_context);
+            var window = new Views.CategoryManagementWindow
+            {
+                DataContext = vm
+            };
+            window.ShowDialog();
+
+            // Refresh Categories after window closes
+            _context.Categories.Load();
+            Categories = _context.Categories.Local.ToObservableCollection();
+            OnPropertyChanged(nameof(Categories));
         }
 
         private void LoadData()
