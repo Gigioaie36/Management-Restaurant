@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}|RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj|c:\\users\\const\\onedrive\\desktop\\proiecte_facultate\\anul 3\\administrarea bazelor de date\\proiect\\management-restaurant\\restaurantmanager.wpf\\data\\restaurantdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}|RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj|solutionrelative:restaurantmanager.wpf\\data\\restaurantdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}|RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj|c:\\users\\const\\onedrive\\desktop\\proiecte_facultate\\anul 3\\administrarea bazelor de date\\proiect\\management-restaurant\\restaurantmanager.wpf\\converters\\statuscolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}|RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj|solutionrelative:restaurantmanager.wpf\\converters\\statuscolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}|RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj|c:\\users\\const\\onedrive\\desktop\\proiecte_facultate\\anul 3\\administrarea bazelor de date\\proiect\\management-restaurant\\restaurantmanager.wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}|RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj|solutionrelative:restaurantmanager.wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}|RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj|c:\\users\\const\\onedrive\\desktop\\proiecte_facultate\\anul 3\\administrarea bazelor de date\\proiect\\management-restaurant\\restaurantmanager.wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}|RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj|solutionrelative:restaurantmanager.wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}|RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj|c:\\users\\const\\onedrive\\desktop\\proiecte_facultate\\anul 3\\administrarea bazelor de date\\proiect\\management-restaurant\\restaurantmanager.wpf\\restaurantmanager.wpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}|RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj|solutionrelative:restaurantmanager.wpf\\restaurantmanager.wpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 453,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +39,70 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RestaurantDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\RestaurantManager.Wpf\\Data\\RestaurantDbContext.cs",
+              "RelativeDocumentMoniker": "RestaurantManager.Wpf\\Data\\RestaurantDbContext.cs",
+              "ToolTip": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\RestaurantManager.Wpf\\Data\\RestaurantDbContext.cs",
+              "RelativeToolTip": "RestaurantManager.Wpf\\Data\\RestaurantDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T08:17:39.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StatusColorConverter.cs",
+              "DocumentMoniker": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\RestaurantManager.Wpf\\Converters\\StatusColorConverter.cs",
+              "RelativeDocumentMoniker": "RestaurantManager.Wpf\\Converters\\StatusColorConverter.cs",
+              "ToolTip": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\RestaurantManager.Wpf\\Converters\\StatusColorConverter.cs",
+              "RelativeToolTip": "RestaurantManager.Wpf\\Converters\\StatusColorConverter.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T08:17:20.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\RestaurantManager.Wpf\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "RestaurantManager.Wpf\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\RestaurantManager.Wpf\\MainWindow.xaml",
+              "RelativeToolTip": "RestaurantManager.Wpf\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-16T08:16:36.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\RestaurantManager.Wpf\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "RestaurantManager.Wpf\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\RestaurantManager.Wpf\\MainWindow.xaml.cs",
+              "RelativeToolTip": "RestaurantManager.Wpf\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T08:16:31.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RestaurantManager.Wpf",
+              "DocumentMoniker": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj",
+              "RelativeDocumentMoniker": "RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj",
+              "ToolTip": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj",
+              "RelativeToolTip": "RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-16T08:08:58.729Z",
+              "EditorCaption": ""
             }
           ]
         }

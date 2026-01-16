@@ -1,15 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}|RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj|c:\\users\\const\\onedrive\\desktop\\proiecte_facultate\\anul 3\\administrarea bazelor de date\\proiect\\management-restaurant\\restaurantmanager.wpf\\restaurantmanager.wpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E022DA31-D7B3-471D-84E4-0CBAD8E30F55}|RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj|solutionrelative:restaurantmanager.wpf\\restaurantmanager.wpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 1473,
-          "SelectedChildIndex": -1,
+          "DockedWidth": 453,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +23,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RestaurantManager.Wpf",
+              "DocumentMoniker": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj",
+              "RelativeDocumentMoniker": "RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj",
+              "ToolTip": "C:\\Users\\const\\OneDrive\\Desktop\\proiecte_facultate\\Anul 3\\Administrarea bazelor de date\\Proiect\\Management-Restaurant\\RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj",
+              "RelativeToolTip": "RestaurantManager.Wpf\\RestaurantManager.Wpf.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-16T08:08:58.729Z",
+              "EditorCaption": ""
             }
           ]
         }
